@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var value = 0
+        var obj = {
+            value: 1,
+            setValue: function () {
+                this.value = 2; // obj 객체의 프로퍼티로 할당
+                {
+                    this.value = 3; // 바깥에 있는 this 를 그대로 가져다 쓴다.
+                                    // block scope에서 this는 따로 바인딩을 하지 않는다.
+                }
+            }
+        }
+        obj.setValue() // setValue() 앞에 obj 가 있어서 this 는 obj
+        console.log(value) // 0
+        console.log(obj.value) // 3
+    </script>
+</body>
+</html>
